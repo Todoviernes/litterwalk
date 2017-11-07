@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cans
   #devise_for :users
   resources :templates
   root "templates#index"

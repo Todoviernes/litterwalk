@@ -1,0 +1,2 @@
+module CansHelper
+end

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Can type</th>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cans.each do |can| %>
+      <tr>
+        <td><%= can.can_type %></td>
+        <td><%= can.address %></td>
+        <td><%= can.latitude %></td>
+        <td><%= can.longitude %></td>
+        <td><%= link_to 'Show', can %></td>
+        <td><%= link_to 'Edit', edit_can_path(can) %></td>
+        <td><%= link_to 'Destroy', can, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Can', new_can_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Can type:</strong>
+  <%= @can.can_type %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @can.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @can.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @can.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_can_path(@can) %> |
+<%= link_to 'Back', cans_path %>
