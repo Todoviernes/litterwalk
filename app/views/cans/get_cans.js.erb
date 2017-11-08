@@ -1,0 +1,4 @@
+<% @locations.each do |loc| %>
+  $('.location_results_list').append('<li><button data-attributes="<%= j loc.to_json_.to_s %><%= loc[:name] %></li>');
+<% end %>
+createCan();

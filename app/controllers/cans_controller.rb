@@ -1,6 +1,13 @@
 class CansController < ApplicationController
   before_action :set_can, only: [:show, :edit, :update, :destroy]
 
+  def get_locations
+    url= "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{params[:latitude]},#{params[:longitude]}&radius=500&key=#{Rails.application.secrets.google_places_key}"
+    http_call = open(url).read
+    response = JSON.parse(http_call, {:symbolize_names => true})
+    @locations = response[:results]
+  end
+
   # GET /cans
   # GET /cans.json
   def index
@@ -69,6 +76,6 @@ class CansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def can_params
-      params.require(:can).permit(:can_type, :address, :latitude, :longitude)
+      params.require(:can).permit(:can_type, :address)
     end
 end
