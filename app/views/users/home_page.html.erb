@@ -1,5 +1,6 @@
 <h1 class="text-center p-5">Welcome to LitterWalk</h1>
 
+<% unless current_user %> 
   <div class="login m-3 text-center">
       <%= link_to 'Login', new_user_session_path, class: "btn btn-primary btn-custom"  %>  
   </div>
@@ -9,4 +10,14 @@
   <div class="singfb m-3 text-center">
       <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-primary btn-custom" %>  
   </div>
-
+<% else %>
+  <div class="singfb m-3 text-center">
+      <button class="btn btn-primary btn-custom">Add a Can</button>
+  </div>
+  <div class="singfb m-3 text-center">
+      <button class="btn btn-primary btn-custom">Find Nearest Can</button>
+  </div>
+    <div class="singfb m-3 text-center">
+      <button class="btn btn-primary btn-custom">Report a Issue</button>
+  </div>
+<% end %>
