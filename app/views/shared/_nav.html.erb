@@ -20,8 +20,8 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <% if current_user %>
-        <div><p>Welcome! <%= current_user[:name] %><p></div>
-        <div class="nav-profile-pic"><%#= image_tag current_user[:image] %></div>
+        <div><p class="welcome-msg">Welcome! <%= current_user[:name] %></p></div>
+        <!-- <div class="nav-profile-pic"><%#= image_tag current_user[:image] %></div> -->
       <% end %>
     </form>
   </div>

@@ -1,7 +1,49 @@
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/**********************************************/
+/******************NAV BAR*********************/
+/**********************************************/
+
+a.navbar-brand:hover {
+    background: transparent;
+}
+
+a.nav-link {
+    color: black !important;
+    font-size:16px
+}
+
+a.nav-link:hover {
+    background: transparent !important;
+    border-bottom: solid 1px black;
+}
+
+p.welcome-msg {
+    margin-bottom: 0px;
+}
+
 .nav-profile-pic img {
     border-radius: 50%;
 }
+
+/**********************************************/
+/******************CONTENT*********************/
+/**********************************************/
+
 .btn-custom {
     width: 200px;
     color: white !important;
+}
+
+/**********************************************/
+/*******************FOOTER*********************/
+/**********************************************/
+
+.footer {
+    margin-top: 1.5rem; 
+    padding-top: 1.5rem;
+    color: #777;
+    border-top: .05rem solid #e5e5e5;
 }
