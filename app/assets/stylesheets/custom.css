@@ -1,0 +1,7 @@
+.nav-profile-pic img {
+    border-radius: 50%;
+}
+.btn-custom {
+    width: 200px;
+    color: white !important;
+}

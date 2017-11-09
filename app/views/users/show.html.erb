@@ -1,5 +1,7 @@
-<div><%= image_tag @user.image %></div>
-<div><%= @user.name %></div>
-<div><%= @user.email %></div>
-<div><%= link_to 'Back', templates_path %>
+<h1 class="text-center m-5">My Profile</h1>
+<div class="m-5">
+  <div><%#= image_tag @user.image %></div>
+  <h4 class="text-center"><%= @user.name %></h4>
+  <h4 class="text-center"><%= @user.email %></h4>
 </div>
+<div class="text-center"><%= link_to 'Edit registration', edit_user_registration_path, class: "btn btn-primary" %><div>
