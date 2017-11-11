@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
+  after_create :send_admin_mail
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -20,5 +21,9 @@ class User < ApplicationRecord
       user.name = auth.info.name # assuming the user model has a name
       user.image = auth.info.image # assuming the user model has an image
     end
+  end
+
+  def send_admin_mail
+    UserMailer.welcome_email(self).deliver
   end
 end
