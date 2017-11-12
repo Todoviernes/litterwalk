@@ -1,0 +1,16 @@
+<%= form_for @can do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :Type_of_Can %>
+    <%= f.text_field :typeOfCan, class: "form-control" %>
+  </fieldset>
+
+
+    <fieldset class="form-group">
+    
+    <%= f.hidden_field :latitude, class: "form-control" %>
+    <%= f.hidden_field :longitude, class: "form-control" %>
+    
+  </fieldset>
+
+  <%= f.submit 'Add!', class: 'btn btn-primary' %>
+<% end %>

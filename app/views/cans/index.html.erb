@@ -1,0 +1,15 @@
+  <%= include_gon %>
+
+<header><h1 class="display-4">Cans</h1></header>
+
+<%= link_to 'Add place', new_can_path, class: 'btn btn-primary btn-lg' %>
+
+
+
+
+    <div id="map"></div>
+   
+
+        <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwhVnvsCXhml1l6gb3-S9eTzLzSPG1gGg&callback=initMap">
+    </script>
