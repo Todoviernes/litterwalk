@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
-  after_create :send_admin_mail
+  # after_create :send_admin_mail
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -23,7 +23,7 @@ class User < ApplicationRecord
     end
   end
 
-  def send_admin_mail
-    UserMailer.welcome_email(self).deliver
-  end
+  # def send_admin_mail
+  #   UserMailer.welcome_email(self).deliver
+  # end
 end
