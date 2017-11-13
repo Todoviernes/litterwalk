@@ -16,15 +16,23 @@ def index
 
   def new
     @can = Can.new
+    @cans = Can.all
+    @all = []
+    gon.all = @all
+    gon.cans = @cans.map do |can| 
+        each = { lat: can.latitude, lng: can.longitude, typeOfCan: can.typeOfCan }
+        @all << each
+     end
   end
 
   def create
     @can = Can.new(can_params)
-    if @can.save
+    if @can.save 
       flash[:success] = "Can added!"
       redirect_to cans_path
     else
-      render 'new'
+      flash[:error] = "Can already exists!"
+      redirect_to cans_path
     end
   end
 
@@ -35,7 +43,7 @@ def index
   private
 
   def can_params
-    params.require(:can).permit(:typeOfCan, :latitude, :longitude)
+    params.require(:can).permit(:typeOfCan, :latitude, :longitude, :address)
   end
 
 end

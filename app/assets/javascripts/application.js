@@ -14,15 +14,6 @@
 //= require turbolinks
 //= require_tree .
 
-window.onload = function(){
-  if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-      $('#can_longitude').val(position.coords.longitude);
-      $('#can_latitude').val(position.coords.latitude);
-    })
-  }
-};
-
 
 
 function initMap() {
@@ -56,6 +47,8 @@ function initMap() {
  
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
+            $('#can_longitude').val(position.coords.longitude);
+            $('#can_latitude').val(position.coords.latitude);
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
