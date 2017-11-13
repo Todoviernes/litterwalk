@@ -1,14 +1,19 @@
   <%= include_gon %>
 
 <header><h1 class="display-4">Cans</h1></header>
+  
 
+  <% if flash[:success] %>
+    <div class="notice"><%= flash[:success] %></div>
+  <% else %>
+    <div class="notice"><%= flash[:error] %></div>
+  <% end %>
 
 
 
 
     <div id="map"></div>
    
-
         <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwhVnvsCXhml1l6gb3-S9eTzLzSPG1gGg&callback=initMap">
     </script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113041813) do
+ActiveRecord::Schema.define(version: 20171113214005) do
 
   create_table "cans", force: :cascade do |t|
     t.string "typeOfCan"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20171113041813) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["latitude", "longitude"], name: "index_cans_on_latitude_and_longitude", unique: true
+    t.index ["address"], name: "index_cans_on_address", unique: true
   end
 
   create_table "users", force: :cascade do |t|
