@@ -15,12 +15,12 @@
 //= require_tree .
 
 window.onload = function(){
-	if (navigator.geolocation) {
-	navigator.geolocation.getCurrentPosition(function(position) {
-			$('#can_longitude').val(position.coords.longitude);
-			$('#can_latitude').val(position.coords.latitude);
-		})
-	}
+  if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+      $('#can_longitude').val(position.coords.longitude);
+      $('#can_latitude').val(position.coords.latitude);
+    })
+  }
 };
 
 
@@ -44,7 +44,7 @@ function initMap() {
         });
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                infoWindow.setContent((gon.all)[i][0]);
+                infoWindow.setContent((gon.all)[i]['typeOfCan']);
                 infoWindow.open(map, marker);
             }
         })(marker, i));
@@ -80,24 +80,4 @@ function initMap() {
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
-
-
-  var infoWindow = new google.maps.InfoWindow(), marker, i;
-    for( i = 0; i < (gon.all).length; i++ ) {
-        var position = new google.maps.LatLng(((gon.all)[i]['lat']), ((gon.all)[i]['lng']));
-        var bounds = new google.maps.LatLngBounds();
-        bounds.extend(position);
-        marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            type: (gon.all)[i]['typeOfCan']
-        });
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-                infoWindow.setContent((gon.all)[i]['typeOfCan']);
-                infoWindow.open(map, marker);
-            }
-        })(marker, i));
-
-    };
 }
