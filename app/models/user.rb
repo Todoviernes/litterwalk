@@ -23,7 +23,7 @@ class User < ApplicationRecord
     end
   end
 
-  def send_admin_mail
-    UserMailer.welcome_email(self).deliver
-  end
+  # def send_admin_mail
+  #   UserMailer.welcome_email(self).deliver
+  # end
 end
