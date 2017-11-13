@@ -1,7 +1,7 @@
 <%= form_for @can do |f| %>
   <fieldset class="form-group">
     <%= f.label :Type_of_Can %>
-    <%= f.text_field :typeOfCan, class: "form-control" %>
+    <%= f.select :typeOfCan, [['Trash'], ['Recycling'], ['Trash and Recycling']], class: "form-control" %>
   </fieldset>
 
 
@@ -12,5 +12,5 @@
     
   </fieldset>
 
-  <%= f.submit 'Add!', class: 'btn btn-primary' %>
+  <%= f.submit 'Add!',  class: 'btn btn-primary' %>
 <% end %>
