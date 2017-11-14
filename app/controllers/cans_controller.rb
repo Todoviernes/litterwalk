@@ -1,5 +1,5 @@
 class CansController < ApplicationController
-
+before_action :set_can, only: [:show, :update, :add_picture, :edit]
 
 
 def index
@@ -37,15 +37,14 @@ def index
   end
 
   def show
-  	@can = Can.find(params[:id])
+    @picture = Picture.new
   end
 
   def edit
-    @can = Can.find(params[:id])
+    
   end
 
   def update
-        @can = Can.find(params[:id])
     if @can.update_attributes(can_params) 
       flash[:success] = "Issue added!"
       redirect_to cans_path
@@ -55,10 +54,23 @@ def index
     end
   end
 
+  def add_picture
+    @can.pictures.create(picture_params)
+    redirect_to @can
+  end
+
   private
 
   def can_params
     params.require(:can).permit(:typeOfCan, :latitude, :longitude, :address, :issues, :backLink)
+  end
+
+  def set_can
+    @can = Can.find(params[:id])
+  end
+
+  def picture_params
+    params.require(:picture).permit(:image)
   end
 
 end

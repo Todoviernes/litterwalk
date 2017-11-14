@@ -12,4 +12,9 @@ before_validation :reverse_geocode
 # validates :longitude, uniqueness: { scope: :latitude }
 
 validates :address, uniqueness: true
+has_many :pictures
+
+	def selected_picture
+		pictures.where(approved: true, selected: true).first.try(:image_url) || "http://fillmurray.com/300/300"
+	end
 end

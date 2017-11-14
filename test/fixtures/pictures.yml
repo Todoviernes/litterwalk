@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  can: one
+  selected: false
+  approved: false
+
+two:
+  can: two
+  selected: false
+  approved: false
