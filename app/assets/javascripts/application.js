@@ -33,9 +33,10 @@ function initMap() {
             map: map,
             title: (gon.all)[i][0]
         });
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {            
+            var html = '  |  <a href="cans/'+(gon.all)[i]['id']+'">See Can</a>'
             return function() {
-                infoWindow.setContent((gon.all)[i]['typeOfCan']);
+                infoWindow.setContent((gon.all)[i]['typeOfCan'] + html);
                 infoWindow.open(map, marker);
             }
         })(marker, i));
@@ -49,6 +50,7 @@ function initMap() {
           navigator.geolocation.getCurrentPosition(function(position) {
             $('#can_longitude').val(position.coords.longitude);
             $('#can_latitude').val(position.coords.latitude);
+            $('#can_backLink').val('<%= link_to "Show Can", show_can_path %>');
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude

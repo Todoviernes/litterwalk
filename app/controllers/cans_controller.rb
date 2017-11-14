@@ -8,7 +8,7 @@ def index
     @all = []
     gon.all = @all
     gon.cans = @can.map do |can| 
-        each = { lat: can.latitude, lng: can.longitude, typeOfCan: can.typeOfCan }
+        each = { lat: can.latitude, lng: can.longitude, typeOfCan: can.typeOfCan, id: can.id.to_s }
         @all << each
      end
     
@@ -20,7 +20,7 @@ def index
     @all = []
     gon.all = @all
     gon.cans = @cans.map do |can| 
-        each = { lat: can.latitude, lng: can.longitude, typeOfCan: can.typeOfCan }
+        each = { lat: can.latitude, lng: can.longitude, typeOfCan: can.typeOfCan, id: can.id.to_s }
         @all << each
      end
   end
@@ -40,10 +40,25 @@ def index
   	@can = Can.find(params[:id])
   end
 
+  def edit
+    @can = Can.find(params[:id])
+  end
+
+  def update
+        @can = Can.find(params[:id])
+    if @can.update_attributes(can_params) 
+      flash[:success] = "Issue added!"
+      redirect_to cans_path
+    else
+      flash[:error] = "Problem is being addressed!"
+      redirect_to cans_path
+    end
+  end
+
   private
 
   def can_params
-    params.require(:can).permit(:typeOfCan, :latitude, :longitude, :address)
+    params.require(:can).permit(:typeOfCan, :latitude, :longitude, :address, :issues, :backLink)
   end
 
 end
