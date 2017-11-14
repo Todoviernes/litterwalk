@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'pg'
 gem 'devise'
 gem 'omniauth-facebook'
