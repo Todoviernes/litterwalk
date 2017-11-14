@@ -1,0 +1,9 @@
+<%= form_for @can do |f| %>
+  <fieldset class="form-group text-center">
+    <%= f.label :What_is_the_issue %></br>
+    <%= f.select :issues, [['Can is Full'], ['Can is Damaged'], ['Can is Gone']], class: "form-control" %>
+  </fieldset>
+ <div class="text-center m-5">
+  <%= f.submit 'Report Issue',  class: 'btn btn-primary' %>
+</div>
+<% end %>

@@ -1,4 +1,6 @@
-<header><h1 class="display-4"><%= @can.typeOfCan %></h1></header>
+<h1 class="display-4 text-center m-5"><%= @can.typeOfCan %></h1>
 
 <p>Address: <%= @can.address %></p>
 <p>Coordinates: <%= @can.latitude %> <%= @can.longitude %></p>
+
+<%= link_to "Report an Issue", edit_can_path %>
