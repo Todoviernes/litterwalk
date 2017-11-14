@@ -1,0 +1,36 @@
+could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+Couldn't create database for {"adapter"=>"postgresql", "pool"=>5, "timeout"=>5000, "database"=>"litter_walk"}
+rake aborted!
+PG::ConnectionBad: could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+/usr/local/lib/ruby/gems/2.4.0/gems/pg-0.21.0/lib/pg.rb:56:in `initialize'
+/usr/local/lib/ruby/gems/2.4.0/gems/pg-0.21.0/lib/pg.rb:56:in `new'
+/usr/local/lib/ruby/gems/2.4.0/gems/pg-0.21.0/lib/pg.rb:56:in `connect'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/connection_handling.rb:88:in `connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/tasks/postgresql_database_tasks.rb:10:in `connection'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/tasks/postgresql_database_tasks.rb:19:in `create'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:117:in `create'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:137:in `block in create_current'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:304:in `block in each_current_configuration'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:303:in `each'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:303:in `each_current_configuration'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/tasks/database_tasks.rb:136:in `create_current'
+/usr/local/lib/ruby/gems/2.4.0/gems/activerecord-5.1.4/lib/active_record/railties/databases.rake:27:in `block (2 levels) in <top (required)>'
+/usr/local/lib/ruby/gems/2.4.0/gems/rake-12.2.1/exe/rake:27:in `<top (required)>'
+Tasks: TOP => db:create
+(See full trace by running task with --trace)

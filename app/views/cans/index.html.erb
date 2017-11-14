@@ -1,12 +1,12 @@
   <%= include_gon %>
 
-<header><h1 class="display-4">Cans</h1></header>
+<header><h1 class="display-4 text-center m-5">Cans near you</h1></header>
   
 
   <% if flash[:success] %>
     <div class="notice"><%= flash[:success] %></div>
   <% else %>
-    <div class="notice"><%= flash[:error] %></div>
+    <div class="notice"><%= flash[:error] %></div>    
   <% end %>
 
 
