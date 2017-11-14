@@ -18,7 +18,7 @@
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 17,
+    zoom: 18,
     center: (gon.all)[0]
   });
 
@@ -34,7 +34,7 @@ function initMap() {
             title: (gon.all)[i][0]
         });
         google.maps.event.addListener(marker, 'click', (function(marker, i) {            
-            var html = '  |  <a href="cans/'+(gon.all)[i]['id']+'">See Can</a>'
+            var html = '  |  <a class="btn btn-info" href="cans/'+(gon.all)[i]['id']+'">See Can</a>'
             return function() {
                 infoWindow.setContent((gon.all)[i]['typeOfCan'] + html);
                 infoWindow.open(map, marker);
@@ -57,7 +57,7 @@ function initMap() {
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent('Your location');
             infoWindow.open(map);
             map.setCenter(pos);
           }, function() {
