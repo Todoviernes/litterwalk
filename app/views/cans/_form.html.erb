@@ -1,7 +1,7 @@
 <%= form_for @can do |f| %>
   <fieldset class="form-group text-center">
     <%= f.label :Type_of_Can %><br>
-    <%= f.select :typeOfCan, [['Trash'], ['Recycling'], ['Trash and Recycling']], class: "form-control" %>
+    <%= f.select :typeOfCan, [['Trash'], ['Recycling'], ['Pet Waste'], ['Organic'], ['E-Waste']], class: "form-control" %>
   </fieldset>
   <fieldset class="form-group">  
     <%= f.hidden_field :latitude, class: "form-control" %>
