@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require introjs
  */
 #map {
         height: 400px;

@@ -5,13 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'abraham'
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-shepherd.js', '~> 1.8'
-  gem 'rails-assets-js-cookie', '~> 2.1'
-end
+gem "introjs-rails"
 gem "administrate"
 gem "paperclip", "~> 5.0.0"
 gem 'pg'
