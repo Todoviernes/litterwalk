@@ -1,12 +1,15 @@
   <%= include_gon %>
-
-<header><h1 class="display-4 text-center m-5">Cans near you</h1></header>
+<% unless current_user %> 
+  <h1 class="text-center p-5">Welcome to LitterWalk</h1>
+    <%= render 'users/login' %>
+  <% else %>
+    <h1 class="display-4 text-center m-5">Cans near you</h1>
   
 
-  <% if flash[:success] %>
-    <div class="notice"><%= flash[:success] %></div>
-  <% else %>
-    <div class="notice"><%= flash[:error] %></div>    
+    <% if flash[:success] %>
+      <div class="notice"><%= flash[:success] %></div>
+    <% else %>
+      <div class="notice"><%= flash[:error] %></div>    
   <% end %>
 
 
@@ -14,6 +17,8 @@
 
     <div id="map"></div>
    
-        <script async defer
+    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwhVnvsCXhml1l6gb3-S9eTzLzSPG1gGg&callback=initMap">
     </script>
+
+<% end %>

@@ -13,8 +13,9 @@
 //= require introjs
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
-
 
 
 function initMap() {
@@ -78,3 +79,4 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
 }
+

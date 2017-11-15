@@ -1,4 +1,9 @@
-  <%= include_gon %>
+
+<%= include_gon %>
+<% unless current_user %> 
+  <h1 class="text-center p-5">Welcome to LitterWalk</h1>
+    <%= render 'users/login' %>
+  <% else %>
 <h1 class="display-4 text-center m-5">Add Can</h1>
 
 
@@ -8,3 +13,4 @@
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwhVnvsCXhml1l6gb3-S9eTzLzSPG1gGg&callback=initMap"></script>
 
+<% end %>
