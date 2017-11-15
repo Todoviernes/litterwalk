@@ -2,19 +2,20 @@
 <div class="info text-center">
 <p>Address: <%= @can.address %></p>
 <p>Latitude: <%= @can.latitude %> Longitude: <%= @can.longitude %></p>
-<ul>
+<div class="row">
 	<% @can.pictures.each do |pic| %>
-	<li>
-		<%= image_tag(pic.image.url) %>
-	</li>
+	<div class="col-sm-4 mt-4">
+		<%= image_tag(pic.image.url, :class => "img-responsive") %>
+	</div>
 	<% end %>
-</ul>
+</div>
 <div> 
+	<div class="add-picture col-sm-12 text-center m-5">
 <%= form_with url: add_picture_url(@can), html: { multipart: true } do |form| %>
 	<%= form.file_field "picture[image]" %>
 	<%= form.submit %>
-
 <% end %>
+</div>
 </div>
 
 <%= link_to "Report an Issue", edit_can_path, class: "btn btn-warning" %>
