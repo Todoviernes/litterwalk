@@ -5,7 +5,7 @@
 <div class="row">
 	<% @can.pictures.each do |pic| %>
 	<div class="col-sm-4 mt-4">
-		<%= image_tag(pic.image.url, :class => "img-responsive") %>
+		<%= image_tag(pic.image.url, :class => "img-fluid") %>
 	</div>
 	<% end %>
 </div>
