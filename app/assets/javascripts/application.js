@@ -51,7 +51,6 @@ function initMap() {
           navigator.geolocation.getCurrentPosition(function(position) {
             $('#can_longitude').val(position.coords.longitude);
             $('#can_latitude').val(position.coords.latitude);
-            $('#can_backLink').val('<%= link_to "Show Can", show_can_path %>');
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
