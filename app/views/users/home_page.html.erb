@@ -3,7 +3,7 @@
 <% unless current_user %> 
   <%= render 'login' %>
 <% else %>
-    <div class="singfb m-3 text-center" data-intro='hello!'>
+    <div id="add-can-id"class="singfb m-3 text-center">
     <%= link_to 'Add a Can',  new_can_path, class: "btn btn-primary btn-custom add-can"%>
   </div>
   <div class="singfb m-3 text-center">
@@ -13,3 +13,4 @@
       <%= link_to 'Trash Information', page_path('about'), class: "btn btn-primary btn-custom trash-info"%>
   </div>
 <% end %>
+
