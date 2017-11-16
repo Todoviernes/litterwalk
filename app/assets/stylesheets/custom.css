@@ -37,10 +37,21 @@ p.welcome-msg {
     color: white !important;
 }
 #map {
-        height: 400px;
-        width: 100%;
-        background-color: grey;
-       }
+    height: 400px;
+    width: 100%;
+    background-color: grey;
+}
+
+/*Checkbox*/
+input#check_box {
+    width: 32px;
+    height: 32px;
+}
+
+label.form-check-label {
+    position: relative;
+    top: -10px;
+}
 /**********************************************/
 /*******************FOOTER*********************/
 /**********************************************/

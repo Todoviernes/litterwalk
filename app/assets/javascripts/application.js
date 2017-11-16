@@ -56,7 +56,9 @@ function initMap() {
             $('#can_backLink').val('<%= link_to "Show Can", show_can_path %>');
             var pos = {
               lat: position.coords.latitude,
-              lng: position.coords.longitude
+              lng: position.coords.longitude,
+              enableHighAccuracy: true,
+              timeout: 10 * 1000 // 10 seconds
             };
 
             infoWindow.setPosition(pos);
