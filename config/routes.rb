@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :cans, except: [:destroy] 
   post "cans/:id/pictures" => 'cans#add_picture', as: "add_picture"
   get "/pages/:page" => "pages#show"
+  get "/tos"  =>  "pages#tos"
   resources :pages
 end
