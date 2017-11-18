@@ -54,7 +54,8 @@ function initMap() {
         new google.maps.Point(10, 34));
         infoWindow = new google.maps.Marker({
             map: map,
-            icon: pinImage
+            icon: pinImage,
+            draggable:true
         });
 
  
