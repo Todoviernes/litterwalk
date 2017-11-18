@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
-  validates_acceptance_of :tos_agreement, :allow_nil => false, :accept => true, :on => :create
+  validates_acceptance_of :tos_agreement, :accept => true, :on => :create
   # after_create :send_admin_mail
 
   def self.new_with_session(params, session)

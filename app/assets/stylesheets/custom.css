@@ -6,6 +6,10 @@
 /******************NAV BAR*********************/
 /**********************************************/
 
+nav.navbar.navbar-expand-lg.navbar-light.bg-light{
+    background-color: #2cbdef !important;
+}
+
 a.navbar-brand:hover {
     background: transparent;
 }
@@ -31,6 +35,10 @@ p.welcome-msg {
 /**********************************************/
 /******************CONTENT*********************/
 /**********************************************/
+
+h1 {
+    font-size: 35px !important;
+}
 
 .btn-custom {
     width: 250px;
@@ -61,4 +69,40 @@ label.form-check-label {
     padding-top: 1.5rem;
     color: #777;
     border-top: .05rem solid #e5e5e5;
+}
+/* Set the fixed height of the footer here */
+#footer {
+  /* height: 60px; */
+  background-color: #f5f5f5;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
+#footer .navbar-header {
+    float:none;
+    width:100%;
+    padding:10px;
+}
+#footer .navbar-brand {
+    font-size:20pt;
+    float:none;
+}
+#footer #bottomNav {
+    padding:10px;
+}
+#footer #bottomNav a {
+    font-size: 22px;
+    color:#ddd;
+    text-decoration:none;
+}
+#footer #bottomNav a:hover {
+    color:#fff;
 }

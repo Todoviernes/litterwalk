@@ -26,7 +26,7 @@ function initMap() {
   });
 
 
-    var infoWindow = new google.maps.InfoWindow(), marker, i;
+    var infoWindow, marker, i = new google.maps.InfoWindow(), marker, i;
     for( i = 0; i < (gon.all).length; i++ ) {
         var position = new google.maps.LatLng(((gon.all)[i]['lat']), ((gon.all)[i]['lng']));
         var bounds = new google.maps.LatLngBounds();
