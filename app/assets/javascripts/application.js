@@ -25,26 +25,28 @@ function initMap() {
     center: (gon.all)[0]
   });
 
+  gon.all.forEach(function(value, index){
 
-    var infoWindow, marker, i = new google.maps.InfoWindow(), marker, i;
-    for( i = 0; i < (gon.all).length; i++ ) {
-        var position = new google.maps.LatLng(((gon.all)[i]['lat']), ((gon.all)[i]['lng']));
-        var bounds = new google.maps.LatLngBounds();
-        bounds.extend(position);
-        marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            title: (gon.all)[i][0]
-        });
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {            
-            var html = '  |  <a class="btn btn-info" href="cans/'+(gon.all)[i]['id']+'">See Can</a>'
-            return function() {
-                infoWindow.setContent((gon.all)[i]['typeOfCan'] + html);
-                infoWindow.open(map, marker);
-            }
-        })(marker, i));
+    var position = new google.maps.LatLng(value['lat'], value['lng']);
 
-    };
+    var bounds = new google.maps.LatLngBounds();
+
+    bounds.extend(position);
+    var marker = new google.maps.Marker({
+      position: position,
+      map: map,
+    });
+
+    var typeOfCan = value['typeOfCan'];
+    var html = "<span class='fa fa-"+ iconForTypeOfCan(typeOfCan) +"'><span>" + typeOfCan + '  |  <a class="btn btn-info" href="cans/'+ value['id'] + '">See Can</a>'
+    marker.addListener('click', function() {
+      var infowindow = new google.maps.InfoWindow({
+        content: html
+      });
+      infowindow.open(map, marker);
+    });
+  });
+
         var pinColor = "FE7569";
         var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
         new google.maps.Size(21, 34),
@@ -96,5 +98,20 @@ function initMap() {
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
+}
+
+
+function iconForTypeOfCan(type){
+  switch(type){
+    case "Trash":
+    case "Recycling":
+      return type.toLowerCase()
+    case "Pet Waste":
+      return "paw"
+    case "Organic":
+      return "envira"
+    case "E-Waste":
+      return "battery-empty"
+  }
 }
 
