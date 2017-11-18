@@ -105,7 +105,6 @@ function initMap() {
 function iconForTypeOfCan(type){
   switch(type){
     case "Trash":
-    case "Recycling":
       return type.toLowerCase()
     case "Pet Waste":
       return "paw"
@@ -113,6 +112,8 @@ function iconForTypeOfCan(type){
       return "envira"
     case "E-Waste":
       return "battery-empty"
+    case "Recycling":
+      return "recycle"
   }
 }
 
