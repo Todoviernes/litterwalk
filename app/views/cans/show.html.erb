@@ -4,24 +4,20 @@
   <% else %>
 <h1 class="display-4 text-center mt-5 mb-1"><%= @can.typeOfCan %></h1>
 <div class="info text-center">
-<p>Address: <%= @can.address %></p>
-<p>Latitude: <%= @can.latitude %> Longitude: <%= @can.longitude %></p>
-<div class="row">
-	<% @can.pictures.each do |pic| %>
-	<div class="col-sm-4 mt-4">
-		<%= image_tag(pic.image.url, :class => "img-fluid") %>
+	<p>Address: <%= @can.address %></p>
+	<p>Latitude: <%= @can.latitude %> Longitude: <%= @can.longitude %></p>
+	<div class="row">
+		<% @can.pictures.each do |pic| %>
+			<div class="col-sm-4 mt-4">
+				<%= image_tag(pic.image.url, :class => "img-fluid") %>
+			</div>
+		<% end %>
 	</div>
+	<%= form_with url: add_picture_url(@can), html: { multipart: true } do |form| %>
+		<%= form.file_field "picture[image]" %>
+		<%= form.submit %>
 	<% end %>
-</div>
-<div> 
-	<div class="add-picture col-sm-12 text-center m-5">
-<%= form_with url: add_picture_url(@can), html: { multipart: true } do |form| %>
-	<%= form.file_field "picture[image]" %>
-	<%= form.submit %>
-<% end %>
-</div>
-</div>
 
-<%= link_to "Report an Issue", edit_can_path, class: "btn btn-warning" %>
+	<%= link_to "Report an Issue", edit_can_path, class: "btn btn-warning" %>
 </div>
 <% end %>
