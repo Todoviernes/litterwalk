@@ -20,7 +20,7 @@ function initMappp() {
     });
 
     var typeOfCan = value['typeOfCan'];
-    var html = "<span class='fa fa-"+ iconForTypeOfCan(typeOfCan) +"'><span>" + typeOfCan + '  |  <a class="btn btn-info" href="cans/'+ value['id'] + '">See Can</a>'
+    var html = "<span class='fa fa-"+ iconForTypeOfCan(typeOfCan) +"'><span>" + typeOfCan + '  |  <a class="btn btn-info" href="/cans/'+ value['id'] + '">See Can</a>'
     marker.addListener('click', function() {
       var infowindow = new google.maps.InfoWindow({
         content: html

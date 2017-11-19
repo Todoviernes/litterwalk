@@ -1,11 +1,11 @@
   <%= include_gon %>
-  <h1>Cans near you</h1>
-
-<%= form_tag searched_path do%>
-	<%=select_tag "search_term", options_for_select(['Trash', 'Recycling', 'Pet Waste', 'Organic', 'E-Waste'])%>
-	<%= submit_tag "Search"%>
-<% end %>
-
+  <h1 class="display-4 text-center pt-3 pb-1">Cans near you</h1>
+   <div class="text-center pb-3">
+		<%= form_tag searched_path do %>
+			<%=select_tag "search_term", options_for_select(['Trash', 'Recycling', 'Pet Waste', 'Organic', 'E-Waste'])%>
+			<%= submit_tag "Search", class: "btn btn-primary"%>
+		<% end %>
+	</div>
 
     <div id="map"></div>
    

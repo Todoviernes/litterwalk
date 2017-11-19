@@ -10,7 +10,7 @@ def index
     gon.cans = @can.map do |can| 
         each = { lat: can.latitude, lng: can.longitude, typeOfCan: can.typeOfCan, id: can.id.to_s }
         @all << each
-     end
+    end
     
   end
 

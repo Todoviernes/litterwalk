@@ -108,6 +108,10 @@ label.form-check-label {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+.col-sm-4.mt-4 img {
+    z-index: -11111;
+    position: relative;
+}
 /**********************************************/
 /*******************FOOTER*********************/
 /**********************************************/

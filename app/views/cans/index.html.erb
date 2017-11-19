@@ -6,17 +6,14 @@
     <h1 class="display-4 text-center pt-3 pb-1">Cans near you</h1>
   
 
-    <% if flash[:success] %>
-      <div class="notice"><%= flash[:success] %></div>
-    <% else %>
-      <div class="notice"><%= flash[:error] %></div>    
-  <% end %>
+    
 
-  
-<%= form_tag searched_path do%>
-  <%=select_tag "search_term", options_for_select(['Trash', 'Recycling', 'Pet Waste', 'Organic', 'E-Waste'])%>
-  <%= submit_tag "Search"%>
-<% end %>
+  <div class="text-center pb-3">
+    <%= form_tag searched_path do%>
+      <%=select_tag "search_term", options_for_select(['Trash', 'Recycling', 'Pet Waste', 'Organic', 'E-Waste'])%>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 
 
 
