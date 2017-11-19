@@ -1,15 +1,12 @@
 <%= form_for @can do |f| %>
-  <fieldset class="form-group text-center">
-    <%= f.label :Type_of_Can %><br>
+  <div class="form-group text-center">
+    <%= f.label :Select_Type_of_Can %><br>
     <%= f.select :typeOfCan, [['Trash'], ['Recycling'], ['Pet Waste'], ['Organic'], ['E-Waste']], class: "form-control" %>
-  </fieldset>
-  <fieldset class="form-group">  
+    <%= f.submit 'Add Can!',  class: 'btn btn-primary' %>
+  </div>
+  <div class="form-group">  
     <%= f.hidden_field :latitude, class: "form-control" %>
     <%= f.hidden_field :longitude, class: "form-control" %>
-  </fieldset>
-
-  <div class="text-center">
-    <%= f.submit 'Add Can!',  class: 'btn btn-primary' %>
   </div>
 
 

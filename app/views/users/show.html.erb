@@ -1,7 +1,12 @@
-<h1 class="text-center m-5">My Profile</h1>
-<div class="m-5">
+<h1 class="text-center mt-5">My Profile</h1>
+<div class="mt-5">
   <div><%#= image_tag @user.image %></div>
   <h4 class="text-center"><%= @user.name %></h4>
-  <h4 class="text-center"><%= @user.email %></h4>
+  <h6 class="text-center"><%= @user.email %></h6>
 </div>
-<div class="text-center"><%= link_to 'Edit registration', edit_user_registration_path, class: "btn btn-primary btn-custom" %><div>
+<div class="text-center">
+	<%= link_to 'Edit registration', edit_user_registration_path, class: "btn btn-primary btn-custom m-1" %>
+</div>
+<div class="text-right">
+<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-warning btn-sm m-1"  %> 
+</div>
