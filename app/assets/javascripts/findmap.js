@@ -3,7 +3,8 @@ function initMapp() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    center: (gon.all)[0]
+    center: (gon.all)[0],
+    disableDefaultUI: true
   });
 
   gon.all.forEach(function(value, index){
@@ -16,6 +17,7 @@ function initMapp() {
     var marker = new google.maps.Marker({
       position: position,
       map: map,
+
     });
 
     var typeOfCan = value['typeOfCan'];

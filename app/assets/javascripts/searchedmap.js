@@ -2,7 +2,8 @@ function initMapppp() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    center: (gon.results)[0]
+    center: (gon.results)[0],
+    disableDefaultUI: true
   });
 
   gon.results.forEach(function(value, index){
