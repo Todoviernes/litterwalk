@@ -1,5 +1,4 @@
 
-
 function initMapp() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
@@ -20,7 +19,7 @@ function initMapp() {
     });
 
     var typeOfCan = value['typeOfCan'];
-    var html = "<span class='fa fa-"+ iconForTypeOfCan(typeOfCan) +"'><span>" + typeOfCan + '  |  <a class="btn btn-info" href="cans/'+ value['id'] + '">See Can</a>'
+    var html = "<span class='fa fa-"+ iconForTypeOfCan(typeOfCan) +"'><span>" + typeOfCan + '  |  <a class="btn btn-info" href="/cans/'+ value['id'] + '">See Can</a>'
     marker.addListener('click', function() {
       var infowindow = new google.maps.InfoWindow({
         content: html
@@ -34,53 +33,56 @@ function initMapp() {
         // new google.maps.Size(21, 34),
         // new google.maps.Point(0,0),
         // new google.maps.Point(10, 34));
-        // infoWindow = new google.maps.Marker({
-        //     map: map,
-        //     icon: pinImage,
-        //     draggable:true
-        // });
+        infoWindow = new google.maps.Marker({
+            map: map,
+            draggable: false,
+            icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 5
+        }
+        });
 
  
-        // if (navigator.geolocation) {
-        //   navigator.geolocation.getCurrentPosition(function(position) {
-        //     $('#can_longitude').val(position.coords.longitude);
-        //     $('#can_latitude').val(position.coords.latitude);
-        //     var pos = {
-        //       lat: position.coords.latitude,
-        //       lng: position.coords.longitude,
-        //       enableHighAccuracy: true,
-        //       timeout: 10 * 1000 // 10 seconds
-        //     };
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            $('#can_longitude').val(position.coords.longitude);
+            $('#can_latitude').val(position.coords.latitude);
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+              enableHighAccuracy: true,
+              timeout: 10 * 1000 // 10 seconds
+            };
 
-        //     infoWindow.setPosition(pos);
-        //     infoWindow.setTitle('Your location');
-        //     infoWindow.setDraggable(true);
-        //     // infoWindow.open(map);
-        //     map.setCenter(pos);
+            infoWindow.setPosition(pos);
+            infoWindow.setTitle('Your location');
+            infoWindow.setDraggable(false);
+            // infoWindow.open(map);
+            map.setCenter(pos);
 
-        //     google.maps.event.addListener(infoWindow, 'dragend', function (event) {
-        //       var lat = this.getPosition().lat();
-        //       var long = this.getPosition().lng();
-        //       console.log(lat, long);
-        //       $('#can_longitude').val(long);
-        //       $('#can_latitude').val(lat);
-        //     });
-        //   }, function() {
-        //     handleLocationError(true, infoWindow, map.getCenter());
-        //   });
-        // } else {
+            google.maps.event.addListener(infoWindow, 'dragend', function (event) {
+              var lat = this.getPosition().lat();
+              var long = this.getPosition().lng();
+              console.log(lat, long);
+              $('#can_longitude').val(long);
+              $('#can_latitude').val(lat);
+            });
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
 
-        //   handleLocationError(false, infoWindow, map.getCenter());
-        // }
-       var marker = new google.maps.Marker({
-       position: map.getCenter(),
-       icon: {
-       path: google.maps.SymbolPath.CIRCLE,
-       scale: 10
-        },
-       // draggable: true,
-       map: map
-  });
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+  //      var marker = new google.maps.Marker({
+  //      position: map.getCenter(),
+  //      icon: {
+  //      path: google.maps.SymbolPath.CIRCLE,
+  //      scale: 10
+  //       },
+  //      // draggable: true,
+  //      map: map
+  // });
 
       }
 
@@ -107,4 +109,3 @@ function iconForTypeOfCan(type){
       return "recycle"
   }
 }
-

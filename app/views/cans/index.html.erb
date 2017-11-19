@@ -12,6 +12,12 @@
       <div class="notice"><%= flash[:error] %></div>    
   <% end %>
 
+  
+<%= form_tag searched_path do%>
+  <%=select_tag "search_term", options_for_select(['Trash', 'Recycling', 'Pet Waste', 'Organic', 'E-Waste'])%>
+  <%= submit_tag "Search"%>
+<% end %>
+
 
 
 
