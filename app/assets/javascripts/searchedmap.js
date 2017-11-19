@@ -1,13 +1,11 @@
-
-
-function initMappp() {
+function initMapppp() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    center: (gon.all)[0]
+    center: (gon.results)[0]
   });
 
-  gon.all.forEach(function(value, index){
+  gon.results.forEach(function(value, index){
 
     var position = new google.maps.LatLng(value['lat'], value['lng']);
 
@@ -20,7 +18,7 @@ function initMappp() {
     });
 
     var typeOfCan = value['typeOfCan'];
-    var html = "<span class='fa fa-"+ iconForTypeOfCan(typeOfCan) +"'><span>" + typeOfCan + '  |  <a class="btn btn-info" href="cans/'+ value['id'] + '">See Can</a>'
+    var html = "<span class='fa fa-"+ iconForTypeOfCan(typeOfCan) +"'><span>" + typeOfCan + '  |  <a class="btn btn-info" href="/cans/'+ value['id'] + '">See Can</a>'
     marker.addListener('click', function() {
       var infowindow = new google.maps.InfoWindow({
         content: html
@@ -29,15 +27,18 @@ function initMappp() {
     });
   });
 
-        var pinColor = "3371FF";
-        var pinImage = new google.maps.MarkerImage("https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-        new google.maps.Size(21, 34),
-        new google.maps.Point(0,0),
-        new google.maps.Point(10, 34));
+        // var pinColor = "FE7569";
+        // var pinImage = new google.maps.MarkerImage("https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+        // new google.maps.Size(21, 34),
+        // new google.maps.Point(0,0),
+        // new google.maps.Point(10, 34));
         infoWindow = new google.maps.Marker({
             map: map,
-            icon: pinImage,
-            draggable:true
+            icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 5
+        },
+            draggable: false
         });
 
  
@@ -72,6 +73,6 @@ function initMappp() {
 
           handleLocationError(false, infoWindow, map.getCenter());
         }
-      }
 
+      }
 

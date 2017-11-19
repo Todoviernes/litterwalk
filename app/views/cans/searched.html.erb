@@ -1,0 +1,14 @@
+  <%= include_gon %>
+  <h1>Cans near you</h1>
+
+<%= form_tag searched_path do%>
+	<%=select_tag "search_term", options_for_select(['Trash', 'Recycling', 'Pet Waste', 'Organic', 'E-Waste'])%>
+	<%= submit_tag "Search"%>
+<% end %>
+
+
+    <div id="map"></div>
+   
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwhVnvsCXhml1l6gb3-S9eTzLzSPG1gGg&callback=initMapppp">
+    </script>

@@ -59,6 +59,19 @@ def index
     redirect_to @can
   end
 
+    def searched
+      unless params[:search_term].nil?
+        @results = Can.where(" \""+"typeOfCan"+"\" like ?", "%#{params[:search_term]}%") 
+
+        @all = []
+        gon.results = @all
+        gon.cans = @results.map do |can| 
+          each = { lat: can.latitude, lng: can.longitude, typeOfCan: can.typeOfCan, id: can.id.to_s }
+          @all << each
+        end
+    end
+end
+
   private
 
   def can_params

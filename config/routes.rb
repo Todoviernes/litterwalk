@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
   get "/tos"  =>  "pages#tos"
   resources :pages
+
+  get '/search' => "cans#searched"
+  post '/searched' => 'cans#searched'
 end
