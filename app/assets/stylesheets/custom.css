@@ -9,6 +9,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     position: fixed;
     width: 100%;
     top: 0px;
+    z-index: 99999;
 }
 
 .container {
