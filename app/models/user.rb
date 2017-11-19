@@ -7,6 +7,8 @@ class User < ApplicationRecord
   # validates_acceptance_of :tos_agreement, :accept => true, :on => :create
   # after_create :send_admin_mail
 
+  validates :password_confirmation, presence: true, on: :create
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session ["devise.facebook_data"]["extra"]["raw_info"]
