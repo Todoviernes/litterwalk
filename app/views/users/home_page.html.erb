@@ -1,12 +1,32 @@
 <h1 class="text-center pt-2">Welcome to LitterWalk</h1>
-
-<% unless current_user %> 
-  <%= render 'login' %>
-<% else %>
   <%= include_gon %>
+<% unless current_user %> 
 
-    <h6 class="text-center">Hello! <%= current_user.name %> <br>Find the cans near you</h6>
+<div class="text-center pb-3">
+    <h6 class="text-center">
+  <br>Find the cans near you</h6>
+    <%= form_tag searched_path do%>
+      <%=select_tag "search_term", options_for_select(['Trash', 'Recycling', 'Pet Waste', 'Organic', 'E-Waste'])%>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+
+
+
+    <div id="map"></div>
+   
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwhVnvsCXhml1l6gb3-S9eTzLzSPG1gGg&callback=initMapp">
+    </script>
+    <div class="singfb m-3 text-center">
+      <%= link_to 'Trash Information', page_path('about'), class: "btn btn-primary btn-custom trash-info"%>
+  </div>
+<% else %>
+
+
   <div class="text-center pb-3">
+    <h6 class="text-center">Hello! <%= current_user.name %> <br>Find the cans near you</h6>
     <%= form_tag searched_path do%>
       <%=select_tag "search_term", options_for_select(['Trash', 'Recycling', 'Pet Waste', 'Organic', 'E-Waste'])%>
       <%= submit_tag "Search", class: "btn btn-primary" %>
@@ -25,4 +45,4 @@
       <%= link_to 'Trash Information', page_path('about'), class: "btn btn-primary btn-custom trash-info"%>
   </div>
 
-<% end %>
+<% end %> 

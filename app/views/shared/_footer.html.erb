@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="text-center"><P>LitterWalk.co | 2017</P></div>
 </footer>
-<% if current_user %> 
+
 	<div class="fluid-container">
 		<div id="footer">
 		  <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
@@ -12,9 +12,6 @@
 		  	  		<div class="col text-center add-can">
 		  	  			<a href="<%= new_can_path %>"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i><br>Add Can</a>
 		  	  		</div>
-		    		<div class="col text-center">
-		    			<a href="<%= cans_path %>"><i class="fa fa-search fa-lg" aria-hidden="true"></i><br>Find a Can</a>
-		    		</div>
 		    		<% if current_user %> 
 			    		<div class="col text-center">
 		          			<a href="/users/<%= current_user.id %>"><i class="fa fa-user fa-lg" aria-hidden="true"></i><br>Profile </a>
@@ -24,4 +21,3 @@
 		  </div>
 		</div>
 	</div>
-<% end %>
