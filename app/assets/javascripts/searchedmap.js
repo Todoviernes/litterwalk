@@ -2,9 +2,13 @@ function initMapppp() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    center: (gon.results)[0],
     disableDefaultUI: true
   });
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        map.setCenter(initialLocation);
+     });  
 
   gon.results.forEach(function(value, index){
 
