@@ -1,8 +1,9 @@
-<h1 class="text-center p-5">Welcome to LitterWalk</h1>
+<h1 class="text-center pt-5">Welcome to LitterWalk</h1>
 
 <% unless current_user %> 
   <%= render 'login' %>
 <% else %>
+    <h4 class="text-center">Hello! <%= current_user.name %></h4>
     <div id="add-can-id"class="singfb m-3 text-center">
     <%= link_to 'Add a Can',  new_can_path, class: "btn btn-primary btn-custom add-can glyphicon glyphicon-trash"%>
   </div>

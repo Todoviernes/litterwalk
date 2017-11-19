@@ -5,7 +5,15 @@
 /**********************************************/
 /******************NAV BAR*********************/
 /**********************************************/
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
 
+.container {
+    margin-top: 60px;
+}
 nav.navbar.navbar-expand-lg.navbar-light.bg-light{
     background-color: #2cbdef !important;
 }
@@ -57,7 +65,12 @@ h1 {
     width: 100%;
     background-color: grey;
 }
-
+#map.add-can {
+    height: 275px !important;
+}
+a.btn.btn-primary.btn-custom.fb-btn {
+    background: #4168AD !important;
+}
 /*Checkbox*/
 input#check_box {
     width: 32px;
