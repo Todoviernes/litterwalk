@@ -1,10 +1,27 @@
+
+
+
 function initMapppp() {
+
+
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    disableDefaultUI: true,
-    center: (gon.results)[0]
+    disableDefaultUI: true
   });  
+
+
+  $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
+    var  currentlat = (data['lat']);
+    var  currentlon = (data['lon']);
+    var currentlocation = {
+          lat: (data['lat']),
+          lng: (data['lon'])
+        };
+    console.log(currentlocation);
+    map.setCenter(currentlocation);
+  });
+
 
   gon.results.forEach(function(value, index){
 
@@ -76,4 +93,5 @@ function initMapppp() {
         }
 
       }
+
 
