@@ -5,12 +5,7 @@ function initMappp() {
     disableDefaultUI: true,
     center: (gon.all)[0]
   });
-
-
-        navigator.geolocation.getCurrentPosition(function (position) {
-        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        map.setCenter(initialLocation);
-     });  
+ 
 
   gon.all.forEach(function(value, index){
 
