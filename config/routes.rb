@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   post "cans/:id/pictures" => 'cans#add_picture', as: "add_picture"
   get "/pages/:page" => "pages#show"
   get "/tos"  =>  "pages#tos"
+  get "/how_to"  =>  "pages#how_to"
+  get "/how_steps"  =>  "pages#how_steps"
   resources :pages
 end
