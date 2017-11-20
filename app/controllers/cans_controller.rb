@@ -34,6 +34,10 @@ def index
       flash[:error] = "Can already exists!"
       redirect_to cans_path
     end
+    respond_to do |format|
+      format.html
+      format.json { render json: {is_success: true }}
+    end
   end
 
   def show
