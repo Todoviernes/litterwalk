@@ -1,7 +1,7 @@
 
 function initMapp() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 18,
+    zoom: 13,
     gestureHandling: 'greedy',
     disableDefaultUI: true
   });  
@@ -12,9 +12,12 @@ function initMapp() {
     var  currentlon = (data['lon']);
     var currentlocation = {
           lat: (data['lat']),
-          lng: (data['lon'])
+          lng: (data['lon']),
+          enableHighAccuracy: true,
+          timeout: 10 * 1000 // 10 seconds
         };
     console.log(currentlocation);
+    infoWindow.setPosition(currentlocation);
     map.setCenter(currentlocation);
   });
   gon.all.forEach(function(value, index){
