@@ -1,11 +1,10 @@
-
 function initMapp() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    disableDefaultUI: true, 
-    center: null
-  });  
+    disableDefaultUI: true,
+    center: (gon.all)[0]   
+  });
 
   gon.all.forEach(function(value, index){
 
@@ -76,16 +75,24 @@ function initMapp() {
 
           handleLocationError(false, infoWindow, map.getCenter());
         }
+  //      var marker = new google.maps.Marker({
+  //      position: map.getCenter(),
+  //      icon: {
+  //      path: google.maps.SymbolPath.CIRCLE,
+  //      scale: 10
+  //       },
+  //      // draggable: true,
+  //      map: map
+  // });
 
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
-        infoWindow.setTitle(browserHasGeolocation ?
+        infoWindow.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
-        // infoWindow.open(map);
-        alert("Please turn your location on.");
+        infoWindow.open(map);
 }
 
 
