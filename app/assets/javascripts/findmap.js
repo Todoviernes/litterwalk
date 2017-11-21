@@ -3,7 +3,8 @@ function initMapp() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    disableDefaultUI: true
+    disableDefaultUI: true, 
+    center: null
   });  
 
   gon.all.forEach(function(value, index){
