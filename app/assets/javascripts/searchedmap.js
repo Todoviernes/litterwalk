@@ -3,7 +3,7 @@ function initMapppp() {
     zoom: 18,
     gestureHandling: 'greedy',
     disableDefaultUI: true,
-    center: (gon.all)[0]
+    center: (gon.results)[0]
   });  
 
   gon.results.forEach(function(value, index){
