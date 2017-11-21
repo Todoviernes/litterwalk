@@ -1,25 +1,11 @@
 
 function initMapp() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
+    zoom: 18,
     gestureHandling: 'greedy',
     disableDefaultUI: true
   });  
 
-
-  $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
-    var  currentlat = (data['lat']);
-    var  currentlon = (data['lon']);
-    var currentlocation = {
-          lat: (data['lat']),
-          lng: (data['lon']),
-          enableHighAccuracy: true,
-          timeout: 10 * 1000 // 10 seconds
-        };
-    console.log(currentlocation);
-    infoWindow.setPosition(currentlocation);
-    map.setCenter(currentlocation);
-  });
   gon.all.forEach(function(value, index){
 
     var position = new google.maps.LatLng(value['lat'], value['lng']);
@@ -89,24 +75,16 @@ function initMapp() {
 
           handleLocationError(false, infoWindow, map.getCenter());
         }
-  //      var marker = new google.maps.Marker({
-  //      position: map.getCenter(),
-  //      icon: {
-  //      path: google.maps.SymbolPath.CIRCLE,
-  //      scale: 10
-  //       },
-  //      // draggable: true,
-  //      map: map
-  // });
 
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
+        infoWindow.setTitle(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
+        // infoWindow.open(map);
+        alert("Please turn your location on.");
 }
 
 

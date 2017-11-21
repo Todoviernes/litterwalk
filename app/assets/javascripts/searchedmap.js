@@ -1,26 +1,12 @@
+var map, infowindow;
 function initMapppp() {
 
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
+    zoom: 18,
     gestureHandling: 'greedy',
     disableDefaultUI: true
   });  
-
-
-  $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
-    var  currentlat = (data['lat']);
-    var  currentlon = (data['lon']);
-    var currentlocation = {
-          lat: (data['lat']),
-          lng: (data['lon']),
-          enableHighAccuracy: true,
-          timeout: 10 * 1000 // 10 seconds
-        };
-    console.log(currentlocation);
-    infoWindow.setPosition(currentlocation);
-    map.setCenter(currentlocation);
-  });
 
 
   gon.results.forEach(function(value, index){
@@ -50,7 +36,7 @@ function initMapppp() {
         // new google.maps.Size(21, 34),
         // new google.maps.Point(0,0),
         // new google.maps.Point(10, 34));
-        infoWindow = new google.maps.Marker({
+        var infoWindow = new google.maps.Marker({
             map: map,
             icon: {
             path: google.maps.SymbolPath.CIRCLE,
@@ -93,5 +79,7 @@ function initMapppp() {
         }
 
       }
+
+
 
 
