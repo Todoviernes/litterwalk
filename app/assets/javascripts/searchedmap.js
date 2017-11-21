@@ -8,6 +8,7 @@ function initMapppp() {
 
         navigator.geolocation.getCurrentPosition(function (position) {
          initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+         infoWindow.setPosition(initialLocation);
          map.setCenter(initialLocation);
       }); 
 
