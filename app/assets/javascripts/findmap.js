@@ -6,11 +6,11 @@ function initMapp() {
     center: gon.all[0]
   });
 
-        navigator.geolocation.getCurrentPosition(function (position) {
-         initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-         infoWindow.setPosition(initialLocation);
-         map.setCenter(initialLocation);
-      });
+  navigator.geolocation.getCurrentPosition(function (position) {
+    initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    infoWindow.setPosition(initialLocation);
+    map.setCenter(initialLocation);
+  });
 
   gon.all.forEach(function(value, index){
 
