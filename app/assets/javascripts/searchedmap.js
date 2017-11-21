@@ -6,6 +6,11 @@ function initMapppp() {
     center: (gon.results)[0]
   });  
 
+        navigator.geolocation.getCurrentPosition(function (position) {
+         initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+         map.setCenter(initialLocation);
+      }); 
+
   gon.results.forEach(function(value, index){
 
     var position = new google.maps.LatLng(value['lat'], value['lng']);
