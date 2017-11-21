@@ -47,6 +47,14 @@ function initMapppp() {
         },
             draggable: false
         });
+        var circle = new google.maps.Circle({
+          map: map,
+          radius: 50,    // 10 miles in metres
+          fillColor: '#07BEEB',
+          fillOpacity: 0.5,
+          strokeWeight: 0
+        });
+        circle.bindTo('center', infoWindow, 'position');
 
  
         if (navigator.geolocation) {
