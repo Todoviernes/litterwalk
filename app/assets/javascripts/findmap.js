@@ -3,7 +3,7 @@ function initMapp() {
     zoom: 18,
     gestureHandling: 'greedy',
     disableDefaultUI: true,
-    center: gon.all[0]  
+    center: gon.all[0]
   });
 
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -66,6 +66,7 @@ function initMapp() {
             infoWindow.setDraggable(false);
             // infoWindow.open(map);
             map.setCenter(pos);
+            console.log(pos);
 
             google.maps.event.addListener(infoWindow, 'dragend', function (event) {
               var lat = this.getPosition().lat();
