@@ -2,10 +2,10 @@ function initMappp() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    disableDefaultUI: true, 
-    center: null
-  });  
-
+    disableDefaultUI: true,
+    center: (gon.all)[0]
+  });
+ 
 
   gon.all.forEach(function(value, index){
 
@@ -73,5 +73,4 @@ function initMappp() {
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
-
 

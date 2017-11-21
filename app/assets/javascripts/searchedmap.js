@@ -1,14 +1,10 @@
-var map, infowindow;
 function initMapppp() {
-
-
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     gestureHandling: 'greedy',
-    disableDefaultUI: true, 
-    center: null
+    disableDefaultUI: true,
+    center: (gon.all)[0]
   });  
-
 
   gon.results.forEach(function(value, index){
 
@@ -37,7 +33,7 @@ function initMapppp() {
         // new google.maps.Size(21, 34),
         // new google.maps.Point(0,0),
         // new google.maps.Point(10, 34));
-        var infoWindow = new google.maps.Marker({
+        infoWindow = new google.maps.Marker({
             map: map,
             icon: {
             path: google.maps.SymbolPath.CIRCLE,
@@ -80,7 +76,3 @@ function initMapppp() {
         }
 
       }
-
-
-
-
